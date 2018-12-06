@@ -13,10 +13,10 @@ end = c.find("',", start)
 lat = c[start:end]
 print lat
 
-start2 = c.find("09")
+start2 = c.find("93")
 end2 = c.find("')", start)
 long = c[start2:end2]
-print long
+print 0 - long
 RPL.init() 
 
 motorL = 0
