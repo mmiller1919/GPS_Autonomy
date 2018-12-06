@@ -1,7 +1,22 @@
 import bsmLib.RPL as RPL
 from vec_angle import vec_angle 
 from bsmLib.vector import vector
-import time 
+import time
+from math import pi
+
+f = open('gData.txt', 'r')
+c = f.read()
+f.close()
+
+start = c.find("44")
+end = c.find("',", start)
+lat = c[start:end]
+print lat
+
+start2 = c.find("09")
+end2 = c.find("')", start)
+long = c[start2:end2]
+print long
 RPL.init() 
 
 motorL = 0
