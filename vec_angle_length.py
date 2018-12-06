@@ -4,28 +4,35 @@ from bsmLib.vector import vector
 import time
 from math import pi
 
+from bsmLib.vector import vector
+from math import pi
+
 f = open('gData.txt', 'r')
-c = f.read()
+c  = f.read()
 f.close()
 
 start = c.find("44")
 end = c.find("',", start)
-lat = c[start:end]
-print lat
+lat = float(c[start:end])
+rlat =  lat - 4400
+trlat = rlat / 60
+latA =  trlat + 44
+
 
 start2 = c.find("93")
 end2 = c.find("')", start)
-long = c[start2:end2]
-print 0 - long
+long = float(c[start2:end2])
+rlong = long - 9300
+trlong = rlong / 60
+longA =  0 - (trlong + 93)
+
 RPL.init() 
 
 motorL = 0
 motorR = 1
 #2000 for right 1000 for left
-Numberx1 = int(raw_input("x1 > "))
-Numbery1 = int(raw_input("y1 > "))
-Numberx2 = int(raw_input("x2 > "))
-Numbery2 = int(raw_input("y2 > "))
+latB = int(raw_input("Latitude > "))
+longB = int(raw_input("Longitude > "))
 
 def vec_trans_angle(x):
 	TurnTime = abs(x) / 20
