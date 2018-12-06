@@ -1,8 +1,8 @@
 from time import sleep
 from gps import GPS
 g = GPS()
-r = g.read()
-#r = '$GPRMC,154633.000,A,4457.4413,N,09320.5487,W,0.19,0.07,011118,,,A*7B'
+#r = g.read()
+r = '$GPRMC,154633.000,A,4457.4413,N,09320.5487,W,0.19,0.07,011118,,,A*7B'
 
 while True:
     sleep(2)
