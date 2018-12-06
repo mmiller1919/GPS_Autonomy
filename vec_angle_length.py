@@ -3,28 +3,48 @@ from vec_angle import vec_angle
 from bsmLib.vector import vector
 import time
 from math import pi
+from gps import GPS
 
-from bsmLib.vector import vector
-from math import pi
+g = GPS()
+r = g.read()
+#r = '$GPRMC,154633.000,A,4457.4413,N,09320.5487,W,0.19,0.07,011118,,,A*7B'
 
-f = open('gData.txt', 'r')
-c  = f.read()
-f.close()
+def data_transfer():
+    sleep(2)
 
-start = c.find("44")
-end = c.find("',", start)
-lat = float(c[start:end])
-rlat =  lat - 4400
-trlat = rlat / 60
-latA =  trlat + 44
+    start = r.find('$GPRMC')
+    end = r.find(',0.', start)
+    log = r[start:end]
+
+    start2 = log.find('A')
+    end2 = log.find('W', start2)
+    log2 = log[start2:end2]
+
+    start3 = log2.find('44')
+    end3 = log2.find(',N', start3)
+    lat = log2[start3:end3]
+
+    start4 = log2.find('09')
+    end4 = log2.find(',W,', start4)
+    lon = log2[start4:end4]
+    
+    return lat, lon
+
+def data_read():
+    start = c.find("44")
+    end = c.find("',", start)  
+    lat = float(c[start:end])
+    rlat =  lat - 4400
+    trlat = rlat / 60
+    latA =  trlat + 44
 
 
-start2 = c.find("93")
-end2 = c.find("')", start)
-long = float(c[start2:end2])
-rlong = long - 9300
-trlong = rlong / 60
-longA =  0 - (trlong + 93)
+    start2 = c.find("93")
+    end2 = c.find("')", start)
+    long = float(c[start2:end2])
+    rlong = long - 9300
+    trlong = rlong / 60
+    longA =  0 - (trlong + 93)
 
 RPL.init() 
 
