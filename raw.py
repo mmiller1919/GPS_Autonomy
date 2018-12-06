@@ -21,9 +21,9 @@ while True:
 
     start4 = log2.find('09')
     end4 = log2.find(',W,', start4)
-    long = log2[start4:end4]
+    lon = log2[start4:end4]
 
     f = open('gData.txt', 'w')
-    coords = lat, long
+    coords = lat, lon
     f.write(str(coords))
     f.close() 
