@@ -1,3 +1,4 @@
+import bsmLib
 from bsmLib import tcpClient
 from bsmLib import vector
 from GPS_Data import GPS
