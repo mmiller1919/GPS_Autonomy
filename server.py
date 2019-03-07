@@ -1,3 +1,4 @@
+import bsmLib
 from bsmLib import tcpServer
 from bsmLib import vector
 
