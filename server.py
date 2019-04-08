@@ -2,9 +2,7 @@ import bsmLib
 from bsmLib import tcpServer
 from bsmLib import vector
 
-tcpServer(port = '10002')
-
-t = tcpServer()
+t = tcpServer(port = '10002')
 t.listen()
 
 vec = vector()
