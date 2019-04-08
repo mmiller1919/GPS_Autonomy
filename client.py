@@ -17,8 +17,7 @@ def average(r):
 
 g = GPS()
 
-tcpClient(host = '192.168.21.153', port = '10002')
-t = tcpClient()
+t = tcpClient(host = '192.168.21.153', port = '10002')
 t.connect()
 
 while(1):
